@@ -1,0 +1,29 @@
+<section id="recherche">
+    <h2 id="titre_filtre">Filtrer les sorties</h2>
+    {{ form_start(form) }}
+    <div class="div-filtre">
+
+        <div id="liste-campus-div">
+            {{ form_row(form.campus) }}
+        </div>
+
+        <div id="search-bar-div">
+            {{ form_row(form.motCle) }}
+        </div>
+
+        <div id="dates_div">
+            {{ form_row(form.dateDebut) }}
+            {{ form_row(form.dateFin) }}
+        </div>
+    </div>
+
+
+    <div id="checkbox_div">
+        {{ form_row(form.estOrganisateur) }}
+        {{ form_row(form.estInscrit) }}
+        {{ form_row(form.estPassee) }}
+    </div>
+
+    <button class="button" id="button-recherche" type="submit">Rechercher</button>
+    {{ form_end(form) }}
+</section>

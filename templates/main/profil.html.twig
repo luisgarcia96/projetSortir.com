@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <link rel="stylesheet" href="{{ asset('css/profil/monProfil.css') }}" />
+    <section class="home">
+        <div class="max-width">
+            <h1>Mon profil</h1>
+            {# render the form and change the submission method #}
+            <div class="formulaire">
+                {{ form_start(profilForm) }}
+                <!--Widget ne sert à rien <3, row change les "cases" de place-->
+                {{ form_row(profilForm.pseudo) }}
+                {{ form_row(profilForm.prenom) }}
+                {{ form_row(profilForm.nom) }}
+                {{ form_row(profilForm.telephone) }}
+                {{ form_row(profilForm.email) }}
+                {{ form_row(profilForm.campus) }}
+
+                <div class="boutons">
+
+                    <input type="submit" value="Enregistrer" id="enregistrer">
+                    <input type="reset" value="Annuler">
+                    <!--  <input type="submit" name ="annuler" class="btn btn-primary" value="Annuler" href="{ path('main_accueil') }}">-->
+
+                </div>
+            </div>
+
+
+            {{ form_end(profilForm) }}
+            {% for message in app.flashes('success') %}
+                <div class="alert-success">
+                    {{ message }}
+                </div>
+            {% endfor %}
+
+
+           <!-- <{ form_start(profilForm) }}
+            { form_widget(profilForm) }}
+            <button>Enregister</button>
+            <button>Annuler</button>
+           { form_end(profilForm) }}-->
+        </div>
+    </section>
+
+{% endblock %}

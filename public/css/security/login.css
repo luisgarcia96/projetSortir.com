@@ -1,0 +1,77 @@
+.navbar {
+    position: relative;
+}
+body {
+    height: 100%;
+}
+
+h1{
+    font-family: sans-serif;
+    margin: 1.5em;
+}
+
+label {
+    font-family: sans-serif;
+}
+
+form {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+#login_form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 4em;
+    text-align: center;
+    justify-content: center;
+    width: 400px;
+}
+
+
+.form_element {
+    text-align: end;
+}
+
+.alert-danger {
+    font-family: sans-serif;
+    color: red;
+}
+
+#bas_formulaire {
+    display: flex;
+}
+
+#remember_element {
+    width: 50%;
+    margin-top: 5%;
+}
+
+#remember_element label {
+    font-size: 18px;
+    margin-right: 0;
+}
+
+button {
+    display: flex;
+    padding: 10px;
+    margin-top: 2.5em;
+    width: 50%;
+    cursor:pointer;
+    border:0;
+    background-color: green;
+    color:white;
+    font-family: sans-serif;
+    font-size: 20px;
+    font-weight : 300;
+    text-decoration : none;
+    border-radius:6px;
+    justify-content: center;
+}
+
+#bas_formulaire button {
+    width: 40%;
+    margin-left: 5%;
+    margin-top: 5%;
+    height: 40px;
+}

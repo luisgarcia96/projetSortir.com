@@ -1,0 +1,22 @@
+
+
+<nav class="navbar">
+    <div class="max-width">
+        <div class ="logo"><a href="{{ path('main_accueil') }}">Sortir<span>.com</span></a></div>
+        <ul class="menu">
+            <li><a href="{{ path('main_accueil') }}" title="Accueil">Accueil</a></li>
+
+            {% if app.user %}
+
+                {% if 'ROLE_ADMIN' in app.user.roles%}
+                    <li><a href="#" title="villes">Villes</a></li>
+                    <li><a href="#" title="campus">Campus</a></li>
+                {% endif %}
+                <li><a href="{{ path('profil') }}" title="profil">Mon profil</a></li>
+                <li><a href="{{ path('app_logout') }}" title="déconnexion">Se déconnecter</a></li>
+            {% else %}
+            <li><a href="{{ path('app_login') }}" title="connexion">Se connecter</a></li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>

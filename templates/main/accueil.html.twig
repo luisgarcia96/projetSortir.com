@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block style %}{{ asset('css/accueil.css') }}{% endblock %}
+{% block title %}Accueil | {{ parent() }}{% endblock %}
+
+{% block body %}
+    <section id="date-et-participant">
+        <h3>Date du jour: {{ "now"|date("d/m/Y", "Europe/Paris") }}</h3>
+        {% if(app.user) %}
+        <h3>Participant: {{ app.user.nom}} </h3>
+        {% endif %}
+    </section>
+
+
+    {% include 'sortie/filter.html.twig' %}
+
+        {% if (sorties is empty) %}
+            <h2 id="pas-de-sorties"> Il n'y a pas de sorties correspondant à votre recherche :(</h2>
+        {% else %}
+            <section id="tableau-sorties">
+                <table id="liste-sorties">
+                    <thead>
+                    <tr>
+                        <td class="thead-element">Nom de la sortie</td>
+                        <td class="thead-element">Date de la sortie</td>
+                        <td class="thead-element">Clôture</td>
+                        <td class="thead-element">Inscrits/places</td>
+                        <td class="thead-element">État</td>
+                        <td class="thead-element">Inscrit</td>
+                        <td class="thead-element">Organisateur</td>
+                        <td class="thead-element">Actions</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for sortie in sorties %}
+                        <tr>
+                            <td>{{ sortie.nom }}</td>
+                            <td>{{ sortie.dateHeureDebut|date("d/m/Y", "Europe/Paris") }}</td>
+                            <td>{{ sortie.dateLimiteInscription|date("d/m/Y", "Europe/Paris") }}</td>
+                            <td> 0 </td>
+                            <td>{{ sortie.etat.libelle }}</td>
+                            <td>Oui</td> {# todo: dynamiser la liste #}
+                            <td>{{ sortie.organisateur.nom }}</td>
+                            <td><a href="#afficherUneSortie">Afficher</a>
+                                {% if app.user %}
+                                    {% if 'ROLE_ORGANISATEUR' in app.user.roles%}
+                                        -<a href="{{ path('cancel_sortie', {'id' : sortie.id}) }}">
+                                            Annuler
+                                        </a>
+                                    {% endif %}
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </section>
+        {% endif %}
+
+    <section id="button-creation-sortie">
+        {% if app.user %}
+            {% if 'ROLE_ORGANISATEUR' in app.user.roles%}
+                <button class="button"><a href="{{ path('sortie_create') }}">Créer une sortie</a></button>
+            {% endif %}
+        {% endif %}
+    </section>
+{% endblock %}
+

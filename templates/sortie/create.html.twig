@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+{% block title %}Créer une sortie | {{ parent() }}{% endblock %}
+
+{% block body %}
+    <section class="createSortie">
+        <div class="max-width">
+            <h1>Créer une sortie</h1>
+
+            <div>
+                {{ form_start(form) }}
+                <div class="left">
+                    {{ form_row(form.nom) }}
+                    {{ form_row(form.dateHeureDebut) }}
+                    {{ form_row(form.duree) }}
+                    {{ form_row(form.dateLimiteInscription) }}
+                    {{ form_row(form.nbInscriptionsMax) }}
+                    {{ form_row(form.infosSortie) }}
+                </div>
+                <div class="right">
+                    {{ form_row(form.campus) }}
+                    {{ form_row(form.lieu) }}
+                </div>
+                <div class="button">
+                    <input type="submit" value="Enregistrer">
+                  <a href="{{ path('publierSortie_publish')}}" title="Publier">Publier la sortie</a>
+                    <input type="reset" value="Annuler">
+                </div>
+                {# read and display all flash messages #}
+                {% for label, messages in app.flashes %}
+                    {% for message in messages %}
+                        <div class="flash flash-{{ label }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </section>
+{% endblock %}

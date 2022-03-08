@@ -1,0 +1,113 @@
+#dates_div {
+    display: flex;
+}
+
+#dates_div div {
+    display: flex;
+}
+#date-et-participant {
+    text-align: end;
+    margin-right: 5%;
+    padding-bottom: 0;
+}
+
+#dateDebut{
+   padding: 5px;
+}
+
+#dateFin{
+    padding: 5px;
+}
+
+#recherche {
+    display: flex;
+    flex-direction: column;
+    margin: 5%;
+    padding: 0;
+
+}
+#titre_filtre {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+}
+.div-filtre {
+    width: 33%;
+}
+
+#checkbox_div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 5%;
+}
+
+#checkbox_div div {
+    margin-bottom: 5px ;
+    margin-top: 5px;
+}
+
+#tableau-sorties {
+    width: 100%;
+    padding: 0;
+}
+
+#liste-sorties {
+    margin: 5%;
+    margin-bottom: 0;
+}
+
+#liste-sorties tr td{
+    width: 5%;
+    border: solid;
+    border-width: thin;
+    border-color: black;
+    padding: 5px;
+    text-align: start;
+}
+
+#liste-sorties thead td {
+    background-color: green;
+    color: white;
+    font-family: sans-serif;
+}
+
+#liste-sorties tbody td {
+    font-family: sans-serif;
+}
+
+.button{
+    width: 20%;
+    padding: 10px;
+    margin: 50px auto;
+    cursor: pointer;
+    border: green solid 0px;
+    background-color: green;
+    color: white;
+    font-family: sans-serif;
+    font-size: 20px;
+    font-weight : 300;
+    text-decoration : none;
+    border-radius:6px;
+}
+
+#button-recherche {
+    margin-right: 0;
+}
+
+#button-creation-sortie {
+    padding: 0;
+    margin-left: 5%;
+}
+
+#dates_div div label {
+    margin-top: 5px;
+}
+
+#pas-de-sorties {
+    text-align: center;
+    color: cadetblue;
+}

@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block style %}{{ asset('css/security/login.css') }}{% endblock %}
+{% block title %}Bienvenue | Authentification{% endblock %}
+
+{% block body %}
+<form method="post">
+    <div id="login_form">
+        {% if error %}
+            <div class="alert alert-danger">Votre identifiant ou mot de passe sont incorrects. Veuillez réessayer</div>
+        {% endif %}
+
+
+        {% if app.user %}
+            <div>
+                You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+            </div>
+        {% endif %}
+
+        <h1>Bienvenue</h1>
+
+        <div class="form_element">
+            <label for="inputEmail">Identifiant: </label>
+            <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+        </div>
+        <div class="form_element">
+            <label for="inputPassword">Mot de passe:</label>
+            <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+        </div>
+
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+
+        <div id="bas_formulaire">
+            <button type="submit">Se connecter</button>
+
+            <div class="form_element" id="remember_element">
+                <input type="checkbox" id="remember_me" name="_remember_me" checked/>
+                <label for="remember_me">Se souvenir de moi</label>
+            </div>
+        </div>
+
+
+
+    </div>
+</form>
+{% endblock %}

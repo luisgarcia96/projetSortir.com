@@ -1,0 +1,51 @@
+.formulaire {
+    display: flex;
+    justify-content:center;
+
+
+}
+#gerer_mon_profil_pseudo{
+    margin-left: 35px ;
+}
+#gerer_mon_profil_prenom{
+    margin-left: 32px ;
+}
+#gerer_mon_profil_nom{
+    margin-left: 67px ;
+}
+#gerer_mon_profil_email{
+    margin-left: 57px ;
+}
+#gerer_mon_profil_campus{
+    margin-left: 26px;
+    width: 179px;
+}
+
+.boutons input{
+
+    width: 40%;
+    padding: 10px;
+
+    cursor:pointer;
+    border:0;
+    background-color: green;
+    color:white;
+    font-family: sans-serif;
+    font-size: 20px;
+    font-weight : 300;
+    text-decoration : none;
+    border-radius:6px;
+    margin:12px;
+}
+
+
+.alert-success{
+    font-weight: bold;
+    font-size: 20px;
+    padding: 10px;
+    margin: 3px 70px;
+    border-radius: 6px;
+    color: white;
+    text-align: center;
+    background-color: green;
+}
