@@ -24,9 +24,6 @@ class PublierSortieController extends AbstractController
         //On récupère la dernière sortie enregistrée par son id
         $sortie = $sortieRepository->findCreatedSortie();
 
-        //findBy([], ['id'=>'desc'],1, 0);
-      //  $sortie = $sortieRepository->findOneBy(['id'=>$id]);
-
 
         //Changement de l'état de la sortie
         $etat = new Etat();
