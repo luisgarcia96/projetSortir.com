@@ -39,47 +39,28 @@ class MonProfilController extends AbstractController
 
         //Traitement du formulaire
         $profilForm->handleRequest($request);
-
-        //si on appui sur enregistrer
         if($profilForm->isSubmitted() && $profilForm->isValid() )
         {
 
-          /*  dd($profilForm->get('password')->getData());
            if ($profilForm->get('password')->getData())
            {
-               // encode the plain password
+               // Encodage du mot de passe
                $user->setPassword(
-                        $passwordEncoder->encodePassword($user, $user->getPassword()
-                        ));
-                    //rentre le mdp haché dans l'utilisateurRepository afin d'être envoyé dans la base de données
+                    $passwordEncoder->encodePassword($user, $user->getPassword())
+               );
                     $utilisateurRepository->upgradeMDP($user);
-
-               //var_dump($userForm);
-            }*/
+            }
 
            $entityManager->persist($user);
            $entityManager->flush();
 
 
-            //message pour dire que le profil est modifié
+            //Confirmation de modification
             $this->addFlash('success', 'Votre profil à bien été modifié !');
-
-            /* if ($photo = $profilForm['photo']->getData())
-              {
-                  //Il enregistre la photo dans un fichier
-                  //le random_bytes sert pour donner un nom aléatoire au fichier
-                  $filename = bin2hex(random_bytes(6)).'.'.$photo->guessExtension();
-                                  try {
-                                      $photo->move($photoDir, $filename);
-                                  } catch (FileException $e) {
-                                     // unable to upload the photo, give up
-                                  }
-              }*/
-
         }
         else
         {
-            //message pour dire que le profil est modifié
+            //Erreur lors de la modification
             $this->addFlash('error', 'Votre profil ne peux être modifié !');
         }
         return $this->render('main/profil.html.twig', [
