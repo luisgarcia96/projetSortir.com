@@ -27,7 +27,7 @@ class RegistrationController extends AbstractController
         CampusRepository $campusRepository): Response
     {
         $user = new Utilisateur();
-        $user->setRoles(['ROLE_USER']); //todo: (vérifier la liste des roles possibles)
+        $user->setRoles(['ROLE_USER']);
         $user->setIsActive(true);
 
         $campusTest = new Campus();
@@ -54,8 +54,7 @@ class RegistrationController extends AbstractController
 
             $entityManager->persist($user);
             $entityManager->flush();
-            // do anything else you need here, like send an email
-
+          
             return $guardHandler->authenticateUserAndHandleSuccess(
                 $user,
                 $request,
